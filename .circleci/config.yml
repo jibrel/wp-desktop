@@ -281,6 +281,9 @@ jobs:
       - attach_workspace:
           at: wp-desktop
       - run:
+          name: Install make
+          command: cinst make
+      - run:
           name: Install node version
           command: |
                   $NODE_VERSION = Get-Content .\calypso\.nvmrc
@@ -289,13 +292,11 @@ jobs:
       - run:
           name: Npm install
           command: npm ci
-          shell: bash.exe
       - run:
           name: Build windows
           command: make package
-          shell: bash.exe
       - run:
-          name: Archive release artifacts
+          name: Archive win-unpacked directories
           command: |
                 tar -zcf release/win-unpacked-x64.tar.gz release/win-unpacked
                 tar -zcf release/win-unpacked-ia32.tar.gz release/win-ia32-unpacked
