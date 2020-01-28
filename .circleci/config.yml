@@ -289,9 +289,11 @@ jobs:
       - run:
           name: Npm install
           command: npm ci
+          shell: bash.exe
       - run:
           name: Build windows
           command: make package
+          shell: bash.exe
       - run:
           name: Archive release artifacts
           command: |
