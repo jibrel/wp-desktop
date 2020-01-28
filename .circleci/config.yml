@@ -275,11 +275,11 @@ jobs:
   windows:
     executor: 
       name: win/default
-    working_directory: wp-desktop
+    working_directory: C:\Users\circleci\wp-desktop
     steps: 
       - checkout
       - attach_workspace:
-          at: wp-desktop
+          at: C:\Users\circleci\wp-desktop
       - run:
           name: Install make
           command: cinst make
@@ -308,7 +308,7 @@ jobs:
                 rm -rf release/win-ia32-unpacked/
           shell: bash.exe
       - persist_to_workspace:
-          root: wp-desktop
+          root: C:\Users\circleci\wp-desktop
           paths: 
             - release
 
